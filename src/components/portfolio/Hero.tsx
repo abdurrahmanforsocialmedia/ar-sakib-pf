@@ -1,4 +1,4 @@
-import { ArrowRight, MessageCircle, Sparkles, Zap, ShieldCheck, Server } from "lucide-react";
+import { ArrowRight, Sparkles, Zap, ShieldCheck, Server } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import sakib from "@/assets/sakib.jpg";
@@ -44,9 +44,7 @@ export function Hero() {
               </a>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a href="https://wa.me/8801521356780" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-2 h-4 w-4" /> Get Free Consultation
-              </a>
+              <a href="#contact">View Services</a>
             </Button>
           </div>
         </div>
