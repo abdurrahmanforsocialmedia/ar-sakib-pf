@@ -1,26 +1,60 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { Nav } from "@/components/portfolio/Nav";
+import { Hero } from "@/components/portfolio/Hero";
+import { About } from "@/components/portfolio/About";
+import { Skills } from "@/components/portfolio/Skills";
+import { Services } from "@/components/portfolio/Services";
+import { Experience } from "@/components/portfolio/Experience";
+import { CaseStudies } from "@/components/portfolio/CaseStudies";
+import { Testimonials } from "@/components/portfolio/Testimonials";
+import { Contact } from "@/components/portfolio/Contact";
+import { Footer } from "@/components/portfolio/Footer";
+import { Cli } from "@/components/portfolio/Cli";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Abdur Rahman Sakib — Linux Server, VPS Management & Hosting Expert" },
+      {
+        name: "description",
+        content:
+          "Hosting performance optimization expert and full-managed VPS engineer. CloudLinux, LiteSpeed, Apache, cPanel — 99.9% uptime, zero-downtime migrations, server hardening.",
+      },
+      { name: "keywords", content: "VPS Management, Server Optimization, Hosting Support, Linux Server Expert, LiteSpeed Optimization, CloudLinux Expert, cPanel Migration" },
+      { property: "og:title", content: "Abdur Rahman Sakib — Linux Server & Hosting Expert" },
+      { property: "og:description", content: "I optimize servers for speed, security, and 99.9% uptime using CloudLinux, LiteSpeed, and Apache." },
+      { property: "og:type", content: "website" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function Index() {
+  const [cliOpen, setCliOpen] = useState(false);
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background text-foreground dark">
+      <Nav onOpenCli={() => setCliOpen(true)} />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Services />
+        <Experience />
+        <CaseStudies />
+        <Testimonials />
+        <Contact />
+      </main>
+      <Footer />
+      <Cli open={cliOpen} onClose={() => setCliOpen(false)} />
+
+      <button
+        onClick={() => setCliOpen(true)}
+        className="fixed bottom-5 right-5 z-40 bg-gradient-primary text-primary-foreground rounded-full px-4 py-3 shadow-glow font-mono text-sm hover:opacity-90 transition-smooth"
+        aria-label="Open CLI"
+      >
+        $ _
+      </button>
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
