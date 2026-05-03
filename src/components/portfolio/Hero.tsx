@@ -5,15 +5,15 @@ import sakib from "@/assets/sakib.jpg";
 
 export function Hero() {
   return (
-    <section id="top" className="relative pt-32 pb-20 overflow-hidden bg-hero-gradient">
+    <section id="top" className="relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden bg-hero-gradient">
       <div className="absolute inset-0 grid-bg pointer-events-none" />
-      <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-[1.2fr_1fr] gap-12 items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-12 items-center">
         <div>
           <Badge variant="outline" className="mb-6 border-accent/40 text-accent gap-1.5 py-1 px-3">
             <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
             Available for Freelance Work
           </Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05]">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.1]">
             High-Performance{" "}
             <span className="text-gradient-primary">Hosting & VPS</span>{" "}
             Expert
@@ -55,7 +55,7 @@ export function Hero() {
           <div className="absolute -inset-6 bg-gradient-primary opacity-30 blur-3xl rounded-full" />
           <div className="relative animate-float">
             <div className="absolute inset-0 rounded-3xl bg-gradient-primary blur-md opacity-60" />
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-3xl overflow-hidden border-2 border-primary/30 shadow-elegant">
+            <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-3xl overflow-hidden border-2 border-primary/30 shadow-elegant">
               <img src={sakib} alt="Abdur Rahman Sakib — Linux Server & Hosting Expert" className="w-full h-full object-cover" />
             </div>
             <div className="absolute -bottom-4 -left-4 bg-card border border-border rounded-xl px-4 py-3 shadow-elegant flex items-center gap-2">
