@@ -11,6 +11,7 @@ import { Testimonials } from "@/components/portfolio/Testimonials";
 import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
 import { Cli } from "@/components/portfolio/Cli";
+import { WhatsAppChat } from "@/components/portfolio/WhatsAppChat";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -33,7 +34,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   const [cliOpen, setCliOpen] = useState(false);
   return (
-    <div className="min-h-screen bg-background text-foreground dark">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Nav onOpenCli={() => setCliOpen(true)} />
       <main>
         <Hero />
@@ -47,14 +48,7 @@ function Index() {
       </main>
       <Footer />
       <Cli open={cliOpen} onClose={() => setCliOpen(false)} />
-
-      <button
-        onClick={() => setCliOpen(true)}
-        className="fixed bottom-5 right-5 z-40 bg-gradient-primary text-primary-foreground rounded-full px-4 py-3 shadow-glow font-mono text-sm hover:opacity-90 transition-smooth"
-        aria-label="Open CLI"
-      >
-        $ _
-      </button>
+      <WhatsAppChat />
     </div>
   );
 }
