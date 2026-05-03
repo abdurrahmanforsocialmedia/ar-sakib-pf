@@ -1,68 +1,138 @@
-import { Mail, MessageCircle, Linkedin } from "lucide-react";
+import { useState } from "react";
+import { Mail, MessageCircle, Linkedin, Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/md-abdur-rahman-sakib-206582203";
 const WA_URL = "https://wa.me/8801521356780";
 const EMAIL = "arsakibpro@gmail.com";
 
 export function Contact() {
-  return (
-    <section id="contact" className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-hero-gradient pointer-events-none" />
-      <div className="relative max-w-4xl mx-auto px-6 text-center">
-        <Badge variant="outline" className="mb-6 border-success/40 text-success gap-1.5 py-1 px-3">
-          <span className="h-2 w-2 rounded-full bg-success animate-pulse" />
-          Available for Freelance Work
-        </Badge>
-        <h2 className="text-3xl sm:text-5xl font-bold mb-4">
-          Let's make your server <span className="text-gradient-primary">faster</span>.
-        </h2>
-        <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto">
-          Whether you need full VPS management, a critical migration, or a one-time optimization — I'm
-          one message away.
-        </p>
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-        <div className="flex flex-wrap justify-center gap-3 mb-8">
-          <Button size="lg" asChild className="bg-gradient-accent text-accent-foreground hover:opacity-90 shadow-glow">
-            <a href={WA_URL} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="mr-2 h-5 w-5" /> Chat on WhatsApp
-            </a>
-          </Button>
-          <Button size="lg" variant="outline" asChild>
-            <a href={`mailto:${EMAIL}`}>
-              <Mail className="mr-2 h-5 w-5" /> Send Email
-            </a>
-          </Button>
-          <Button size="lg" variant="ghost" asChild>
-            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <Linkedin className="mr-2 h-5 w-5" /> LinkedIn
-            </a>
-          </Button>
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      setError("Please fill in all fields.");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError("Please enter a valid email.");
+      return;
+    }
+    if (name.length > 100 || email.length > 255 || message.length > 1000) {
+      setError("Input too long.");
+      return;
+    }
+    setLoading(true);
+    const subject = `Portfolio inquiry from ${name.trim()}`;
+    const body = `Name: ${name.trim()}\nEmail: ${email.trim()}\n\n${message.trim()}`;
+    const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setTimeout(() => {
+      window.location.href = mailto;
+      setLoading(false);
+    }, 400);
+  };
+
+  return (
+    <section id="contact" className="py-20 sm:py-24 relative overflow-hidden">
+      <div className="absolute inset-0 bg-hero-gradient pointer-events-none" />
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12">
+          <Badge variant="outline" className="mb-6 border-success/40 text-success gap-1.5 py-1 px-3">
+            <span className="h-2 w-2 rounded-full bg-success animate-pulse" />
+            Available for Freelance Work
+          </Badge>
+          <h2 className="text-3xl sm:text-5xl font-bold mb-4">
+            Let's make your server <span className="text-gradient-primary">faster</span>.
+          </h2>
+          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
+            Whether you need full VPS management, a critical migration, or a one-time
+            optimization — I'm one message away.
+          </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-4 max-w-xl mx-auto text-left">
-          <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="p-5 rounded-xl border border-border bg-card hover:border-primary/50 transition-smooth flex items-center gap-3">
-            <MessageCircle className="h-5 w-5 text-success shrink-0" />
-            <div className="min-w-0">
-              <div className="text-xs text-muted-foreground">WhatsApp</div>
-              <div className="font-medium truncate">Chat on WhatsApp</div>
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          {/* Quick contact */}
+          <div className="space-y-4">
+            <a
+              href={WA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-4 p-5 rounded-xl border border-border bg-card hover:border-success/60 transition-smooth"
+            >
+              <div className="h-12 w-12 rounded-lg bg-success/10 flex items-center justify-center text-success shrink-0">
+                <MessageCircle className="h-6 w-6" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="font-semibold">Chat on WhatsApp</div>
+                <div className="text-sm text-muted-foreground">Fastest response · usually within minutes</div>
+              </div>
+            </a>
+
+            <a
+              href={`mailto:${EMAIL}`}
+              className="group flex items-center gap-4 p-5 rounded-xl border border-border bg-card hover:border-primary/60 transition-smooth"
+            >
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                <Mail className="h-6 w-6" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="font-semibold">Send an Email</div>
+                <div className="text-sm text-muted-foreground font-mono truncate">{EMAIL}</div>
+              </div>
+            </a>
+
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-4 p-5 rounded-xl border border-border bg-card hover:border-primary/60 transition-smooth"
+            >
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                <Linkedin className="h-6 w-6" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="font-semibold">Connect on LinkedIn</div>
+                <div className="text-sm text-muted-foreground">Professional profile</div>
+              </div>
+            </a>
+          </div>
+
+          {/* Contact form */}
+          <form
+            onSubmit={handleSubmit}
+            className="p-6 sm:p-8 rounded-2xl border border-border bg-card shadow-elegant space-y-4"
+          >
+            <div>
+              <h3 className="text-xl font-bold">Send a Message</h3>
+              <p className="text-sm text-muted-foreground mt-1">I'll get back to you shortly.</p>
             </div>
-          </a>
-          <a href={`mailto:${EMAIL}`} className="p-5 rounded-xl border border-border bg-card hover:border-primary/50 transition-smooth flex items-center gap-3">
-            <Mail className="h-5 w-5 text-primary shrink-0" />
-            <div className="min-w-0">
-              <div className="text-xs text-muted-foreground">Email</div>
-              <div className="font-mono font-medium text-sm truncate">{EMAIL}</div>
+            <div className="space-y-1.5">
+              <Label htmlFor="c-name">Name</Label>
+              <Input id="c-name" value={name} onChange={(e) => setName(e.target.value)} maxLength={100} placeholder="Your name" />
             </div>
-          </a>
-          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="sm:col-span-2 p-5 rounded-xl border border-border bg-card hover:border-primary/50 transition-smooth flex items-center gap-3">
-            <Linkedin className="h-5 w-5 text-primary shrink-0" />
-            <div className="min-w-0">
-              <div className="text-xs text-muted-foreground">LinkedIn</div>
-              <div className="font-medium truncate">md-abdur-rahman-sakib</div>
+            <div className="space-y-1.5">
+              <Label htmlFor="c-email">Email</Label>
+              <Input id="c-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} maxLength={255} placeholder="you@example.com" />
             </div>
-          </a>
+            <div className="space-y-1.5">
+              <Label htmlFor="c-message">Message</Label>
+              <Textarea id="c-message" value={message} onChange={(e) => setMessage(e.target.value)} maxLength={1000} placeholder="Tell me about your server or project…" rows={5} />
+            </div>
+            {error && <p className="text-sm text-destructive">{error}</p>}
+            <Button type="submit" disabled={loading} size="lg" className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-glow">
+              {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <><Send className="mr-2 h-4 w-4" /> Send Message</>}
+            </Button>
+          </form>
         </div>
       </div>
     </section>
