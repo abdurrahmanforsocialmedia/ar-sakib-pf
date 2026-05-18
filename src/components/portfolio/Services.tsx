@@ -26,7 +26,7 @@ export function Services() {
           {services.map(({ icon: Icon, title, desc }) => (
             <Card
               key={title}
-              className="p-7 bg-card border-border hover:border-primary/60 transition-smooth hover:-translate-y-1 hover:shadow-elegant group relative overflow-hidden"
+              className="p-6 sm:p-7 bg-card border-border hover:border-primary/60 transition-smooth hover:-translate-y-1 hover:shadow-elegant group relative overflow-hidden"
             >
               <div className="absolute -top-12 -right-12 w-40 h-40 bg-gradient-primary opacity-0 group-hover:opacity-20 blur-3xl transition-smooth" />
               <div className="h-12 w-12 rounded-xl bg-gradient-primary flex items-center justify-center mb-5 shadow-glow">
