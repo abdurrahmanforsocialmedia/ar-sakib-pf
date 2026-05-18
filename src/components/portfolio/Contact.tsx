@@ -43,7 +43,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-24 relative overflow-hidden">
+    <section id="contact" className="py-16 sm:py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-hero-gradient pointer-events-none" />
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
