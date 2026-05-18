@@ -17,8 +17,8 @@ const expertise = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24 bg-secondary/30">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="skills" className="py-16 sm:py-24 bg-secondary/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-14">
           <p className="text-sm font-mono text-primary mb-2">// stack</p>
           <h2 className="text-3xl sm:text-4xl font-bold">Core Skills & Tools</h2>

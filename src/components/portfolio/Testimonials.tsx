@@ -9,16 +9,16 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-secondary/30">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-16 sm:py-24 bg-secondary/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-14">
           <p className="text-sm font-mono text-primary mb-2">// testimonials</p>
           <h2 className="text-3xl sm:text-4xl font-bold">Trusted by Clients</h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t) => (
-            <Card key={t.author} className="p-7 bg-card border-border hover:shadow-glow transition-smooth relative">
+            <Card key={t.author} className="p-6 sm:p-7 bg-card border-border hover:shadow-glow transition-smooth relative">
               <Quote className="h-8 w-8 text-primary/40 absolute top-5 right-5" />
               <div className="flex gap-0.5 mb-4">
                 {Array.from({ length: 5 }).map((_, i) => (

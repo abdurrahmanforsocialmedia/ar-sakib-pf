@@ -12,14 +12,14 @@ const points = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-24 bg-secondary/30">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="experience" className="py-16 sm:py-24 bg-secondary/30">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
           <p className="text-sm font-mono text-primary mb-2">// experience</p>
           <h2 className="text-3xl sm:text-4xl font-bold">Work Experience</h2>
         </div>
 
-        <Card className="p-8 bg-card border-border shadow-elegant">
+        <Card className="p-6 sm:p-8 bg-card border-border shadow-elegant">
           <div className="flex items-start gap-4 mb-6 flex-wrap">
             <div className="h-12 w-12 rounded-xl bg-gradient-primary flex items-center justify-center shrink-0">
               <Briefcase className="h-5 w-5 text-primary-foreground" />

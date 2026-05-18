@@ -9,8 +9,8 @@ const stats = [
 
 export function About() {
   return (
-    <section id="about" className="py-24 relative">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="about" className="py-16 sm:py-24 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <p className="text-sm font-mono text-primary mb-3">// about me</p>
@@ -35,7 +35,7 @@ export function About() {
                 key={s.label}
                 className="p-6 bg-card/60 backdrop-blur border-border hover:border-primary/50 transition-smooth hover:shadow-glow"
               >
-                <div className="text-4xl font-bold text-gradient-primary">{s.value}</div>
+                <div className="text-3xl sm:text-4xl font-bold text-gradient-primary">{s.value}</div>
                 <div className="text-sm text-muted-foreground mt-2">{s.label}</div>
               </Card>
             ))}

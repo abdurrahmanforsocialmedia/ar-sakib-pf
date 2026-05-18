@@ -42,7 +42,7 @@ export function Nav({ onOpenCli }: { onOpenCli: () => void }) {
           ))}
         </div>
         <div className="flex items-center gap-1 sm:gap-2">
-          <Button variant="ghost" size="icon" onClick={onOpenCli} aria-label="Open CLI" className="hidden sm:inline-flex">
+          <Button variant="ghost" size="icon" onClick={onOpenCli} aria-label="Open CLI">
             <Terminal className="h-4 w-4" />
           </Button>
           <Button variant="ghost" size="icon" onClick={toggle} aria-label="Toggle theme">

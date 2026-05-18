@@ -49,21 +49,21 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto">
+        <div className="relative mx-auto w-full max-w-xs sm:max-w-sm lg:max-w-none">
           <div className="absolute -inset-6 bg-gradient-primary opacity-30 blur-3xl rounded-full" />
-          <div className="relative animate-float">
+          <div className="relative animate-float mx-auto w-fit">
             <div className="absolute inset-0 rounded-3xl bg-gradient-primary blur-md opacity-60" />
-            <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-3xl overflow-hidden border-2 border-primary/30 shadow-elegant">
+            <div className="relative w-48 h-48 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-3xl overflow-hidden border-2 border-primary/30 shadow-elegant">
               <img src={sakib} alt="Abdur Rahman Sakib — Linux Server & Hosting Expert" className="w-full h-full object-cover" />
             </div>
-            <div className="absolute -bottom-4 -left-4 bg-card border border-border rounded-xl px-4 py-3 shadow-elegant flex items-center gap-2">
+            <div className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 bg-card border border-border rounded-xl px-3 py-2 sm:px-4 sm:py-3 shadow-elegant flex items-center gap-2">
               <Sparkles className="h-4 w-4 text-accent" />
               <div>
-                <div className="text-xs text-muted-foreground">Uptime</div>
-                <div className="font-bold text-success">99.9%</div>
+                <div className="text-[10px] sm:text-xs text-muted-foreground">Uptime</div>
+                <div className="font-bold text-success text-sm sm:text-base">99.9%</div>
               </div>
             </div>
-            <div className="absolute -top-4 -right-4 bg-card border border-border rounded-xl px-4 py-3 shadow-elegant font-mono text-xs">
+            <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-card border border-border rounded-xl px-3 py-2 sm:px-4 sm:py-3 shadow-elegant font-mono text-[10px] sm:text-xs">
               <div className="text-success">$ uptime</div>
               <div className="text-muted-foreground">load avg: 0.02</div>
             </div>

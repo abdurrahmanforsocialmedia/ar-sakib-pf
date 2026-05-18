@@ -27,23 +27,23 @@ const cases = [
 
 export function CaseStudies() {
   return (
-    <section id="cases" className="py-24">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="cases" className="py-16 sm:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-14">
           <p className="text-sm font-mono text-primary mb-2">// case studies</p>
           <h2 className="text-3xl sm:text-4xl font-bold">Real Results, Real Servers</h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {cases.map((c) => (
-            <Card key={c.tag} className="p-7 bg-card border-border hover:border-accent/50 transition-smooth flex flex-col">
+            <Card key={c.tag} className="p-6 sm:p-7 bg-card border-border hover:border-accent/50 transition-smooth flex flex-col">
               <div className="flex items-center justify-between mb-5">
                 <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-primary/10 text-primary border border-primary/20">
                   {c.tag}
                 </span>
                 <TrendingUp className="h-5 w-5 text-success" />
               </div>
-              <div className="text-5xl font-bold text-gradient-primary mb-5">{c.metric}</div>
+              <div className="text-4xl sm:text-5xl font-bold text-gradient-primary mb-5">{c.metric}</div>
               <div className="space-y-3 text-sm flex-1">
                 <div>
                   <div className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Problem</div>
