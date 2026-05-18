@@ -35,7 +35,7 @@ export function About() {
                 key={s.label}
                 className="p-6 bg-card/60 backdrop-blur border-border hover:border-primary/50 transition-smooth hover:shadow-glow"
               >
-                <div className="text-4xl font-bold text-gradient-primary">{s.value}</div>
+                <div className="text-3xl sm:text-4xl font-bold text-gradient-primary">{s.value}</div>
                 <div className="text-sm text-muted-foreground mt-2">{s.label}</div>
               </Card>
             ))}
