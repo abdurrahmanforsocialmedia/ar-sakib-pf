@@ -50,6 +50,7 @@ function Index() {
       <Footer />
       <Cli open={cliOpen} onClose={() => setCliOpen(false)} />
       <WhatsAppChat />
+      <ScrollToTop />
     </div>
   );
 }
