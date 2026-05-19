@@ -131,6 +131,7 @@ export function Contact() {
           {/* Contact form */}
           <form
             onSubmit={handleSubmit}
+            aria-label="Contact Abdur Rahman Sakib"
             className="p-6 sm:p-8 rounded-2xl border border-border bg-card shadow-elegant space-y-4"
           >
             <div>
@@ -149,9 +150,10 @@ export function Contact() {
               <Label htmlFor="c-message">Message</Label>
               <Textarea id="c-message" value={message} onChange={(e) => setMessage(e.target.value)} maxLength={1000} placeholder="Tell me about your server or project…" rows={5} />
             </div>
-            {error && <p className="text-sm text-destructive">{error}</p>}
+            {error && <p className="text-sm text-destructive" role="alert">{error}</p>}
+            {success && <p className="text-sm text-success" role="status">{success}</p>}
             <Button type="submit" disabled={loading} size="lg" className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-glow">
-              {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <><Send className="mr-2 h-4 w-4" /> Send Message</>}
+              {loading ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending…</> : <><Send className="mr-2 h-4 w-4" /> Send Message</>}
             </Button>
           </form>
         </div>
