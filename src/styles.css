@@ -30,6 +30,8 @@
   --color-ring: var(--ring);
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
   --color-terminal: var(--terminal);
   --color-terminal-foreground: var(--terminal-foreground);
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -56,6 +58,8 @@
   --destructive-foreground: oklch(0.98 0 0);
   --success: oklch(0.72 0.18 150);
   --success-foreground: oklch(0.1 0.02 250);
+  --info: oklch(0.62 0.17 245);
+  --info-foreground: oklch(0.98 0 0);
   --terminal: oklch(0.15 0.02 250);
   --terminal-foreground: oklch(0.85 0.18 150);
   --border: oklch(0.9 0.01 240);
@@ -90,6 +94,8 @@
   --destructive-foreground: oklch(0.98 0 0);
   --success: oklch(0.78 0.18 150);
   --success-foreground: oklch(0.12 0.02 250);
+  --info: oklch(0.72 0.16 245);
+  --info-foreground: oklch(0.12 0.02 250);
   --terminal: oklch(0.12 0.02 250);
   --terminal-foreground: oklch(0.85 0.2 150);
   --border: oklch(1 0 0 / 10%);
@@ -145,3 +151,18 @@
 
 @keyframes float { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-10px) } }
 .animate-float { animation: float 4s ease-in-out infinite; }
+
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+.live-dot { animation: live-pulse 1.8s ease-in-out infinite; }
+
+@keyframes wa-ring {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+.wa-ring::before {
+  content: ""; position: absolute; inset: 0; border-radius: 9999px;
+  background: #25D366; animation: wa-ring 1.8s ease-out infinite; z-index: -1;
+}

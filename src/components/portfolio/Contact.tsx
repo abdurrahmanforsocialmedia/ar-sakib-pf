@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { Mail, MessageCircle, Linkedin, Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -10,16 +11,22 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/md-abdur-rahman-sakib-20658220
 const WA_URL = "https://wa.me/8801521356780";
 const EMAIL = "arsakibpro@gmail.com";
 
+const EMAILJS_SERVICE_ID = "service_xojx7fc";
+const EMAILJS_TEMPLATE_ID = "template_7pujrsj";
+const EMAILJS_PUBLIC_KEY = "ML7_Y7PgwnZCwNwYi";
+
 export function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+    setSuccess("");
     if (!name.trim() || !email.trim() || !message.trim()) {
       setError("Please fill in all fields.");
       return;
@@ -33,13 +40,27 @@ export function Contact() {
       return;
     }
     setLoading(true);
-    const subject = `Portfolio inquiry from ${name.trim()}`;
-    const body = `Name: ${name.trim()}\nEmail: ${email.trim()}\n\n${message.trim()}`;
-    const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setTimeout(() => {
-      window.location.href = mailto;
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: name.trim(),
+          from_email: email.trim(),
+          message: message.trim(),
+          to_name: "Sakib",
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+      setSuccess("Message sent! I'll get back to you shortly.");
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch {
+      setError("Something went wrong. Please try WhatsApp instead.");
+    } finally {
       setLoading(false);
-    }, 400);
+    }
   };
 
   return (
@@ -110,6 +131,7 @@ export function Contact() {
           {/* Contact form */}
           <form
             onSubmit={handleSubmit}
+            aria-label="Contact Abdur Rahman Sakib"
             className="p-6 sm:p-8 rounded-2xl border border-border bg-card shadow-elegant space-y-4"
           >
             <div>
@@ -128,9 +150,10 @@ export function Contact() {
               <Label htmlFor="c-message">Message</Label>
               <Textarea id="c-message" value={message} onChange={(e) => setMessage(e.target.value)} maxLength={1000} placeholder="Tell me about your server or project…" rows={5} />
             </div>
-            {error && <p className="text-sm text-destructive">{error}</p>}
+            {error && <p className="text-sm text-destructive" role="alert">{error}</p>}
+            {success && <p className="text-sm text-success" role="status">{success}</p>}
             <Button type="submit" disabled={loading} size="lg" className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-glow">
-              {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <><Send className="mr-2 h-4 w-4" /> Send Message</>}
+              {loading ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending…</> : <><Send className="mr-2 h-4 w-4" /> Send Message</>}
             </Button>
           </form>
         </div>

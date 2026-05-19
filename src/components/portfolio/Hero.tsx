@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, Zap, ShieldCheck, Server } from "lucide-react";
+import { ArrowRight, Sparkles, Zap, ShieldCheck, Server, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import sakib from "@/assets/sakib.jpg";
@@ -44,7 +44,17 @@ export function Hero() {
               </a>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a href="#contact">View Services</a>
+              <a href="#services">View Services</a>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <a
+                href="https://i.postimg.cc/V6dg770T/Professional-CV-of-Sakib.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download Abdur Rahman Sakib's CV"
+              >
+                <Download className="mr-2 h-4 w-4" /> Download CV
+              </a>
             </Button>
           </div>
         </div>
