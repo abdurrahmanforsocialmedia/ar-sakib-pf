@@ -12,6 +12,7 @@ import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
 import { Cli } from "@/components/portfolio/Cli";
 import { WhatsAppChat } from "@/components/portfolio/WhatsAppChat";
+import { ScrollToTop } from "@/components/portfolio/ScrollToTop";
 
 export const Route = createFileRoute("/")({
   head: () => ({
