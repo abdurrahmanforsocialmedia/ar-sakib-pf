@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, Zap, ShieldCheck, Server } from "lucide-react";
+import { ArrowRight, Sparkles, Zap, ShieldCheck, Server, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import sakib from "@/assets/sakib.jpg";
