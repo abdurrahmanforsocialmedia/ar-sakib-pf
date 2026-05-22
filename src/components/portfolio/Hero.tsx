@@ -47,7 +47,7 @@ export function Hero() {
             </Button>
             <Button size="lg" variant="outline" asChild>
               <a
-                href="https://i.postimg.cc/V6dg770T/Professional-CV-of-Sakib.png"
+                href="https://drive.google.com/file/d/1kEE8n3pCDnOY8U-qeu8eof_ZYXjkcvzC/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Download Abdur Rahman Sakib's CV"
