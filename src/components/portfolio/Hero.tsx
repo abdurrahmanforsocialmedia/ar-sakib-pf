@@ -1,7 +1,6 @@
 import { ArrowRight, Sparkles, Zap, ShieldCheck, Server, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import sakib from "@/assets/sakib.jpg";
 
 export function Hero() {
   return (
@@ -48,7 +47,7 @@ export function Hero() {
             </Button>
             <Button size="lg" variant="outline" asChild>
               <a
-                href="https://i.postimg.cc/V6dg770T/Professional-CV-of-Sakib.png"
+                href="https://drive.google.com/file/d/1kEE8n3pCDnOY8U-qeu8eof_ZYXjkcvzC/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Download Abdur Rahman Sakib's CV"
@@ -64,7 +63,7 @@ export function Hero() {
           <div className="relative animate-float mx-auto w-fit">
             <div className="absolute inset-0 rounded-3xl bg-gradient-primary blur-md opacity-60" />
             <div className="relative w-48 h-48 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-3xl overflow-hidden border-2 border-primary/30 shadow-elegant">
-              <img src={sakib} alt="Abdur Rahman Sakib — Linux Server & Hosting Expert" className="w-full h-full object-cover" />
+              <img src="https://drive.google.com/thumbnail?id=10iw3hXZ6FoYVcNxs_2yCxKagEl6Ij7tp&sz=w800" alt="Abdur Rahman Sakib — Linux Server & Hosting Expert" className="w-full h-full object-cover" />
             </div>
             <div className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 bg-card border border-border rounded-xl px-3 py-2 sm:px-4 sm:py-3 shadow-elegant flex items-center gap-2">
               <Sparkles className="h-4 w-4 text-accent" />
